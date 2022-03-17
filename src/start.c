@@ -9,16 +9,13 @@
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
-		printf("USAGE: ./start <client_count>\n");
+		printf("USAGE: ./start <message_blocks>\n");
 		_exit(1);
 	}
-	int count = strtol(argv[1], NULL, 10);
-	if (count  < 1) {
-		return 0;
-	}
 	int pipefd[2];
+	int status;
 	pipe(pipefd);
-	for (int i = 0; i < count; i++) {
+	for (int i = 1; i < argc; i++) {
 		pid_t child_pid = fork();
 		switch (child_pid) {
 		case -1: perror("fork");
@@ -26,8 +23,8 @@ int main(int argc, char **argv) {
 		case 0: close(pipefd[0]);
 			close(STDOUT_FILENO);
 			dup(pipefd[1]);
-			execl("./client","./client", "Hello", NULL);
-		default: break;
+			execl("./client","./client", argv[i], NULL);
+		default: wait(&status);
 		}
 	}
 	close(pipefd[1]);
