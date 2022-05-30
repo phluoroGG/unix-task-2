@@ -1,0 +1,8 @@
+# Ветров К.А.
+count=1
+cat test40 | while read line
+do
+	echo "Line $count: $line"
+	count=$[ $count + 1 ]
+done
+echo "Finished proccesing the file"

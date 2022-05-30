@@ -1,0 +1,7 @@
+# Ветров К.А.
+if [[ $USER == p* ]]
+then
+	echo "Hello $USER"
+else
+	echo "Sorry, I don't know you"
+fi

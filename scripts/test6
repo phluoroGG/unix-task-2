@@ -1,0 +1,5 @@
+# Ветров К.А.
+if date
+then
+	echo "it worked"
+fi

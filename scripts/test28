@@ -1,0 +1,6 @@
+# Ветров К.А.
+for state in "North Dakota" Connecticut Illinois Alamaba Tennessee
+do
+	echo "$state is the next place to go"
+done | sort
+echo "This completes out travels"

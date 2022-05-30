@@ -1,0 +1,11 @@
+# Ветров К.А.
+<?php
+$pattern = $argv[1];
+$file = fopen("/etc/passwd", "r");
+while ($line = fgets($file, 200)) {
+	$fields = explode(":", $line);
+	if (preg_match("/($pattern)/", $fields[4]) and $fields[2] > 500)
+		echo $line;
+}
+fclose($file);
+?>

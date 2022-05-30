@@ -1,0 +1,8 @@
+# Ветров К.А.
+if [ $# -ne 2 ]
+then
+	echo Usage: test33 a b
+else
+	total=$[ $1 + $2 ]
+	echo The total is $total
+fi
